@@ -13,10 +13,18 @@ module.exports = function( grunt ){
                     'assets/js/main.min.js': ['assets/_js/main.js']
                 }
             }
-        }//uglify
+        },//uglify
+        watch: {
+            dist: {
+                files: ['assets/_js/**/*'],
+                tasks: ['uglify']
+            },
+        },
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default',['uglify']);
+    grunt.registerTask('w',['watch']);
 };
